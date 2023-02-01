@@ -36,7 +36,6 @@ while page < 20:
             continue
     page += 1
     sleep(1.5)
-    print(PRODUCTS)
 for index, link in enumerate(PRODUCTS):
     response_page = requests.get(url=link[0], headers=Headers)
     product_page = response_page.text
@@ -62,7 +61,6 @@ for index, link in enumerate(PRODUCTS):
         continue
     sleep(1.5)
     PRODUCTS[index]= PRODUCTS[index][:-1]
-    print(PRODUCTS[index])
 
 
 df = pd.DataFrame(PRODUCTS, columns=["product url", "product name", "product price", "rating", "number of reviews", "asin", "description", "manufacturer", "product description"])
